@@ -7,11 +7,7 @@ import { AntDesign } from "@expo/vector-icons";
 // Define the Footer functional component
 const Footer = ({}) => {
 	// Render the Footer component
-	return (
-		<View style={styles.footer}>
-			<View style={styles.separator} />
-		</View>
-	);
+	return <View style={styles.footer}>{/* <View style={styles.separator} /> */}</View>;
 };
 
 // Export the Footer component
@@ -25,7 +21,7 @@ const styles = StyleSheet.create({
 		justifyContent: "space-between",
 		left: 0,
 		right: 0,
-		backgroundColor: "white",
+		backgroundColor: "#5e1620",
 		//zIndex: 10,
 		bottom: 0,
 		height: "7%",
@@ -34,6 +30,7 @@ const styles = StyleSheet.create({
 		shadowOpacity: 0.5,
 		shadowRadius: 2,
 		elevation: 2,
+		borderRadius: 10,
 	},
 	separator: {
 		height: 1,

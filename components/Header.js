@@ -14,7 +14,7 @@ const Header = () => {
 				<Text style={styles.title}>FRETBOARD</Text>
 			</View>
 			{/* View for separator line */}
-			<View style={styles.separator} />
+			{/* <View style={styles.separator} /> */}
 		</View>
 	);
 };
@@ -27,11 +27,11 @@ const styles = StyleSheet.create({
 	header: {
 		position: "absolute",
 		width: "100%",
-		borderRadius: 100,
+		borderRadius: 10,
 		alignItems: "center",
 		top: 0,
 		zIndex: 5,
-		backgroundColor: "white",
+		backgroundColor: "#5e1620",
 		// shadowColor: "#000",
 		// shadowOffset: { width: 0, height: 2 },
 		// shadowOpacity: 0.5,
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
 		fontWeight: "bold",
 		fontFamily: "Roboto",
 		letterSpacing: 4,
-		color: "black",
+		color: "white",
 		marginBottom: 10,
 	},
 	separator: {

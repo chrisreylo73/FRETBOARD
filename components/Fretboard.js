@@ -436,14 +436,14 @@ const styles = StyleSheet.create({
 	string: {
 		width: 6,
 		height: "100%",
-		backgroundColor: "blue",
+		backgroundColor: "#5a432e",
 	},
 	fretBar: {
 		justifyContent: "center",
 		alignItems: "flex-start",
 		width: "100%",
 		height: 5,
-		backgroundColor: "#5a432e",
+		backgroundColor: "#808080",
 	},
 	stringNames: {
 		flexDirection: "row",
