@@ -1,5 +1,5 @@
 // Import necessary modules and components
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import React from "react";
 import { AntDesign } from "@expo/vector-icons";
 // import { BlurView } from "expo-blur";
@@ -7,7 +7,13 @@ import { AntDesign } from "@expo/vector-icons";
 // Define the Footer functional component
 const Footer = ({}) => {
 	// Render the Footer component
-	return <View style={styles.footer}>{/* <View style={styles.separator} /> */}</View>;
+	return (
+		<View style={styles.footer}>
+			<TouchableOpacity style={styles.button}>
+				<Text>RESULTS</Text>
+			</TouchableOpacity>
+		</View>
+	);
 };
 
 // Export the Footer component
@@ -18,7 +24,7 @@ const styles = StyleSheet.create({
 	footer: {
 		position: "absolute",
 		alignItems: "center",
-		justifyContent: "space-between",
+		justifyContent: "center",
 		left: 0,
 		right: 0,
 		backgroundColor: "#5e1620",
@@ -38,11 +44,11 @@ const styles = StyleSheet.create({
 		width: "100%",
 	},
 	button: {
+		backgroundColor: "white",
 		alignItems: "center",
 		justifyContent: "center",
-		width: "100%",
-		hight: "100%",
-		padding: 15,
-		borderRadius: 20,
+		width: 140,
+		height: 30,
+		borderRadius: 10,
 	},
 });
