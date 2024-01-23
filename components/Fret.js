@@ -26,15 +26,15 @@ const Fret = ({ fretHeight, doubleCircle, singleCircle, includeFretBar, fretNumb
 				</View>
 			)}
 			{singleCircle === true ? (
-				<View style={[styles.singleCircleContainer, { top: 32 - (fretNumber || 0) }]}>
+				<View style={[styles.singleCircleContainer, { top: 35 - (fretNumber || 0), marginLeft: 2 }]}>
 					<View style={styles.singleCircle}></View>
 				</View>
 			) : (
 				<></>
 			)}
 			{doubleCircle === true ? (
-				<View style={[styles.doubleCircleContainer, { top: 32 - (fretNumber || 0) }]}>
-					<View style={[styles.singleCircle, { marginLeft: 88, marginRight: 75 }]}></View>
+				<View style={[styles.doubleCircleContainer, { top: 35 - (fretNumber || 0) }]}>
+					<View style={[styles.singleCircle, { marginLeft: 90, marginRight: 78 }]}></View>
 					<View style={styles.singleCircle}></View>
 				</View>
 			) : (
@@ -66,9 +66,8 @@ const styles = StyleSheet.create({
 	singleCircle: {
 		// position: "absolute",
 		backgroundColor: "grey",
-		width: 18,
-		height: 18,
-
+		width: 15,
+		height: 15,
 		borderRadius: 30,
 	},
 	singleCircleContainer: {
