@@ -4,12 +4,14 @@ import Fretboard from "./components/Fretboard";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import axios from "axios";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export default function App() {
-	const fetchChordInfo = async (chordName) => {
+	const [lookup, setLookup] = useState("0-0-0-0-0-0");
+
+	const fetchChordInfo = async (strings) => {
 		try {
-			const response = await axios.get(`https://api.uberchord.com/v1/chords/${chordName}`);
+			const response = await axios.get(`https://api.uberchord.com/v1/chords?voicing=${strings}`);
 			// Handle the response data
 			const chordInfo = response.data;
 			console.log(chordInfo);
@@ -17,9 +19,10 @@ export default function App() {
 			console.error("Error fetching chord information:", error.message);
 		}
 	};
-
+	// X-3-2-X-1-0
+	// X 3 2 0 1 0
 	useEffect(() => {
-		fetchChordInfo("C");
+		fetchChordInfo("X 3 2 0 1 0");
 	}, []);
 
 	return (

@@ -1,8 +1,14 @@
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from "react-native";
-import React from "react";
+import { useEffect, useState } from "react";
 import Fret from "./Fret";
 
 const Fretboard = () => {
+	const [bigELocation, setBigELocation] = useState(0);
+	const [aLocation, setALocation] = useState(0);
+	const [dLocation, setDLocation] = useState(0);
+	const [gLocation, setGLocation] = useState(0);
+	const [bLocation, setBLocation] = useState(0);
+	const [littleELocation, setLittleELocation] = useState(0);
 	const toRoman = (num) => {
 		const romanNumerals = ["I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"];
 		const arabicNumerals = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
@@ -56,26 +62,26 @@ const Fretboard = () => {
 					<Text>B</Text>
 					<Text>E</Text>
 				</View>
-				<Fret fretHeight={80} includeFretBar={false} fretNumber={1} />
-				<Fret fretHeight={78} fretNumber={2} />
-				<Fret fretHeight={76} singleCircle={true} fretNumber={3} />
-				<Fret fretHeight={74} fretNumber={4} />
-				<Fret fretHeight={72} singleCircle={true} fretNumber={5} />
-				<Fret fretHeight={70} fretNumber={6} />
-				<Fret fretHeight={68} singleCircle={true} fretNumber={7} />
-				<Fret fretHeight={66} fretNumber={8} />
-				<Fret fretHeight={64} singleCircle={true} fretNumber={9} />
-				<Fret fretHeight={62} fretNumber={10} />
-				<Fret fretHeight={60} fretNumber={11} />
-				<Fret fretHeight={58} doubleCircle={true} fretNumber={12} />
-				<Fret fretHeight={56} fretNumber={13} />
-				<Fret fretHeight={54} fretNumber={14} />
-				<Fret fretHeight={52} singleCircle={true} fretNumber={15} />
-				<Fret fretHeight={50} fretNumber={16} />
-				<Fret fretHeight={48} singleCircle={true} fretNumber={17} />
-				<Fret fretHeight={46} fretNumber={18} />
-				<Fret fretHeight={44} singleCircle={true} fretNumber={19} />
-				<Fret fretHeight={42} fretNumber={20} />
+				<Fret fretHeight={80} includeFretBar={false} fretNumber={1} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={78} fretNumber={2} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={76} singleCircle={true} fretNumber={3} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={74} fretNumber={4} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={72} singleCircle={true} fretNumber={5} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={70} fretNumber={6} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={68} singleCircle={true} fretNumber={7} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={66} fretNumber={8} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={64} singleCircle={true} fretNumber={9} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={62} fretNumber={10} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={60} fretNumber={11} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={58} doubleCircle={true} fretNumber={12} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={56} fretNumber={13} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={54} fretNumber={14} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={52} singleCircle={true} fretNumber={15} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={50} fretNumber={16} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={48} singleCircle={true} fretNumber={17} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={46} fretNumber={18} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={44} singleCircle={true} fretNumber={19} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
+				<Fret fretHeight={42} fretNumber={20} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
 			</View>
 			<View style={[styles.romanNumeralContainer]}></View>
 		</SafeAreaView>
