@@ -1,7 +1,14 @@
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import React from "react";
+import { useState } from "react";
 
 const Fret = ({ fretHeight, doubleCircle, singleCircle, includeFretBar, fretNumber }) => {
+	const [bigEPressed, setBigEPressed] = useState(false);
+	const [aPressed, setAPressed] = useState(false);
+	const [dPressed, setDPressed] = useState(false);
+	const [gPressed, setGPressed] = useState(false);
+	const [bPressed, setBPressed] = useState(false);
+	const [littleEPressed, setLittleEPressed] = useState(false);
+
 	return (
 		<View style={[styles.fret, { height: fretHeight }]}>
 			{includeFretBar === false ? (
@@ -34,12 +41,12 @@ const Fret = ({ fretHeight, doubleCircle, singleCircle, includeFretBar, fretNumb
 				<></>
 			)}
 			<View style={[styles.buttonsContainer, { top: 32 - (fretNumber || 0) }]}>
-				<TouchableOpacity style={[styles.button, { marginRight: 3, marginLeft: 2.5 }]}></TouchableOpacity>
-				<TouchableOpacity style={[styles.button, { marginRight: 2.5 }]}></TouchableOpacity>
-				<TouchableOpacity style={[styles.button, { marginRight: 1.5 }]}></TouchableOpacity>
-				<TouchableOpacity style={[styles.button, { marginRight: 1 }]}></TouchableOpacity>
-				<TouchableOpacity style={styles.button}></TouchableOpacity>
-				<TouchableOpacity style={styles.button}></TouchableOpacity>
+				<TouchableOpacity style={[styles.button, { marginRight: 3, marginLeft: 2.5, backgroundColor: bigEPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]} onPress={() => setBigEPressed(!bigEPressed)}></TouchableOpacity>
+				<TouchableOpacity style={[styles.button, { marginRight: 2.5, backgroundColor: aPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]} onPress={() => setAPressed(!aPressed)}></TouchableOpacity>
+				<TouchableOpacity style={[styles.button, { marginRight: 1.5, backgroundColor: dPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]} onPress={() => setDPressed(!dPressed)}></TouchableOpacity>
+				<TouchableOpacity style={[styles.button, { marginRight: 1, backgroundColor: gPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]} onPress={() => setGPressed(!gPressed)}></TouchableOpacity>
+				<TouchableOpacity style={[styles.button, { backgroundColor: bPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]} onPress={() => setBPressed(!bPressed)}></TouchableOpacity>
+				<TouchableOpacity style={[styles.button, { backgroundColor: littleEPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]} onPress={() => setLittleEPressed(!littleEPressed)}></TouchableOpacity>
 			</View>
 			<View style={styles.stringsContainer}>
 				<View style={[styles.string, { width: 7 }]}></View>

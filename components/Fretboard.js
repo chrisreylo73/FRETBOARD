@@ -50,7 +50,7 @@ const Fretboard = () => {
 			<View style={[styles.fretboardContainer]}>
 				<View style={styles.stringNames}>
 					<Text> E</Text>
-					<Text> A</Text>
+					<Text>A</Text>
 					<Text>D</Text>
 					<Text>G</Text>
 					<Text>B</Text>
