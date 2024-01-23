@@ -2,57 +2,52 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 
 const Fret = ({ fretHeight, doubleCircle, singleCircle, includeFretBar, fretNumber }) => {
-	const toRoman = (num) => {
-		const romanNumerals = ["I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"];
-		const arabicNumerals = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
-
-		let result = "";
-		let i = arabicNumerals.length - 1;
-
-		while (num > 0) {
-			if (num >= arabicNumerals[i]) {
-				result += romanNumerals[i];
-				num -= arabicNumerals[i];
-			} else {
-				i--;
-			}
-		}
-
-		return result;
-	};
 	return (
-		<View style={styles.fretContainer}>
-			<View style={[styles.fret, { height: fretHeight }]}>
-				{includeFretBar === true ? (
-					<View style={styles.fretBar}>
-						<View style={styles.stringsContainer}>
-							<View style={[styles.string, { width: 7 }]}></View>
-							<View style={[styles.string, { width: 6 }]}></View>
-							<View style={[styles.string, { width: 5 }]}></View>
-							<View style={[styles.string, { width: 4 }]}></View>
-							<View style={[styles.string, { width: 3 }]}></View>
-							<View style={[styles.string, { width: 2 }]}></View>
-						</View>
+		<View style={[styles.fret, { height: fretHeight }]}>
+			{includeFretBar === false ? (
+				<></>
+			) : (
+				<View style={styles.fretBar}>
+					<View style={styles.stringsContainer}>
+						<View style={[styles.string, { width: 7 }]}></View>
+						<View style={[styles.string, { width: 6 }]}></View>
+						<View style={[styles.string, { width: 5 }]}></View>
+						<View style={[styles.string, { width: 4 }]}></View>
+						<View style={[styles.string, { width: 3 }]}></View>
+						<View style={[styles.string, { width: 2 }]}></View>
 					</View>
-				) : (
-					<></>
-				)}
-				<View style={[styles.buttonsContainer, { top: 32 - (fretNumber || 0) }]}>
-					<TouchableOpacity style={[styles.button, { marginRight: 3, marginLeft: 2.5 }]}></TouchableOpacity>
-					<TouchableOpacity style={[styles.button, { marginRight: 2.5 }]}></TouchableOpacity>
-					<TouchableOpacity style={[styles.button, { marginRight: 1.5 }]}></TouchableOpacity>
-					<TouchableOpacity style={[styles.button, { marginRight: 1 }]}></TouchableOpacity>
-					<TouchableOpacity style={styles.button}></TouchableOpacity>
-					<TouchableOpacity style={styles.button}></TouchableOpacity>
 				</View>
-				<View style={styles.stringsContainer}>
-					<View style={[styles.string, { width: 7 }]}></View>
-					<View style={[styles.string, { width: 6 }]}></View>
-					<View style={[styles.string, { width: 5 }]}></View>
-					<View style={[styles.string, { width: 4 }]}></View>
-					<View style={[styles.string, { width: 3 }]}></View>
-					<View style={[styles.string, { width: 2 }]}></View>
+			)}
+			{singleCircle === true ? (
+				<View style={[styles.singleCircleContainer, { top: 32 - (fretNumber || 0) }]}>
+					<View style={styles.singleCircle}></View>
 				</View>
+			) : (
+				<></>
+			)}
+			{doubleCircle === true ? (
+				<View style={[styles.doubleCircleContainer, { top: 32 - (fretNumber || 0) }]}>
+					<View style={[styles.singleCircle, { marginLeft: 88, marginRight: 75 }]}></View>
+					<View style={styles.singleCircle}></View>
+				</View>
+			) : (
+				<></>
+			)}
+			<View style={[styles.buttonsContainer, { top: 32 - (fretNumber || 0) }]}>
+				<TouchableOpacity style={[styles.button, { marginRight: 3, marginLeft: 2.5 }]}></TouchableOpacity>
+				<TouchableOpacity style={[styles.button, { marginRight: 2.5 }]}></TouchableOpacity>
+				<TouchableOpacity style={[styles.button, { marginRight: 1.5 }]}></TouchableOpacity>
+				<TouchableOpacity style={[styles.button, { marginRight: 1 }]}></TouchableOpacity>
+				<TouchableOpacity style={styles.button}></TouchableOpacity>
+				<TouchableOpacity style={styles.button}></TouchableOpacity>
+			</View>
+			<View style={styles.stringsContainer}>
+				<View style={[styles.string, { width: 7 }]}></View>
+				<View style={[styles.string, { width: 6 }]}></View>
+				<View style={[styles.string, { width: 5 }]}></View>
+				<View style={[styles.string, { width: 4 }]}></View>
+				<View style={[styles.string, { width: 3 }]}></View>
+				<View style={[styles.string, { width: 2 }]}></View>
 			</View>
 		</View>
 	);
@@ -61,23 +56,28 @@ const Fret = ({ fretHeight, doubleCircle, singleCircle, includeFretBar, fretNumb
 export default Fret;
 
 const styles = StyleSheet.create({
-	container: {
-		width: "1000",
-		backgroundColor: "rgba(255,255,255)",
+	singleCircle: {
+		// position: "absolute",
+		backgroundColor: "grey",
+		width: 18,
+		height: 18,
+
+		borderRadius: 30,
 	},
-	fretContainer: {
-		// marginTop: 100,
-		// backgroundColor: "grey",
-		// height: 500,
-		width: 280,
-		// elevation: 5,
-		// marginBottom: 100,
-		// borderRadius: 5,
-		// flex: 1,
+	singleCircleContainer: {
+		position: "absolute",
+		left: 134.5,
 	},
+	doubleCircleContainer: {
+		position: "absolute",
+		flexDirection: "row",
+	},
+	doubleCircle: {},
 	fret: {
-		width: "100%",
+		width: 280,
+		// width: "100%",
 		// height: 40,
+
 		backgroundColor: "#111111",
 		marginTop: -0.5,
 	},

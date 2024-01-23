@@ -56,26 +56,26 @@ const Fretboard = () => {
 					<Text>B</Text>
 					<Text>E</Text>
 				</View>
-				<Fret fretHeight={80} fretNumber={1} />
-				<Fret fretHeight={78} includeFretBar={true} fretNumber={2} />
-				<Fret fretHeight={76} includeFretBar={true} fretNumber={3} />
-				<Fret fretHeight={74} includeFretBar={true} fretNumber={4} />
-				<Fret fretHeight={72} includeFretBar={true} fretNumber={5} />
-				<Fret fretHeight={70} includeFretBar={true} fretNumber={6} />
-				<Fret fretHeight={68} includeFretBar={true} fretNumber={7} />
-				<Fret fretHeight={66} includeFretBar={true} fretNumber={8} />
-				<Fret fretHeight={64} includeFretBar={true} fretNumber={9} />
-				<Fret fretHeight={62} includeFretBar={true} fretNumber={10} />
-				<Fret fretHeight={60} includeFretBar={true} fretNumber={11} />
-				<Fret fretHeight={58} includeFretBar={true} fretNumber={12} />
-				<Fret fretHeight={56} includeFretBar={true} fretNumber={13} />
-				<Fret fretHeight={54} includeFretBar={true} fretNumber={14} />
-				<Fret fretHeight={52} includeFretBar={true} fretNumber={15} />
-				<Fret fretHeight={50} includeFretBar={true} fretNumber={16} />
-				<Fret fretHeight={48} includeFretBar={true} fretNumber={17} />
-				<Fret fretHeight={46} includeFretBar={true} fretNumber={18} />
-				<Fret fretHeight={44} includeFretBar={true} fretNumber={19} />
-				<Fret fretHeight={42} includeFretBar={true} fretNumber={20} />
+				<Fret fretHeight={80} includeFretBar={false} fretNumber={1} />
+				<Fret fretHeight={78} fretNumber={2} />
+				<Fret fretHeight={76} singleCircle={true} fretNumber={3} />
+				<Fret fretHeight={74} fretNumber={4} />
+				<Fret fretHeight={72} singleCircle={true} fretNumber={5} />
+				<Fret fretHeight={70} fretNumber={6} />
+				<Fret fretHeight={68} singleCircle={true} fretNumber={7} />
+				<Fret fretHeight={66} fretNumber={8} />
+				<Fret fretHeight={64} singleCircle={true} fretNumber={9} />
+				<Fret fretHeight={62} fretNumber={10} />
+				<Fret fretHeight={60} fretNumber={11} />
+				<Fret fretHeight={58} doubleCircle={true} fretNumber={12} />
+				<Fret fretHeight={56} fretNumber={13} />
+				<Fret fretHeight={54} fretNumber={14} />
+				<Fret fretHeight={52} singleCircle={true} fretNumber={15} />
+				<Fret fretHeight={50} fretNumber={16} />
+				<Fret fretHeight={48} singleCircle={true} fretNumber={17} />
+				<Fret fretHeight={46} fretNumber={18} />
+				<Fret fretHeight={44} singleCircle={true} fretNumber={19} />
+				<Fret fretHeight={42} fretNumber={20} />
 			</View>
 			<View style={[styles.romanNumeralContainer]}></View>
 		</SafeAreaView>
