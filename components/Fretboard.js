@@ -77,6 +77,7 @@ const Fretboard = () => {
 				<Fret fretHeight={44} includeFretBar={true} fretNumber={19} />
 				<Fret fretHeight={42} includeFretBar={true} fretNumber={20} />
 			</View>
+			<View style={[styles.romanNumeralContainer]}></View>
 		</SafeAreaView>
 	);
 };
@@ -98,7 +99,7 @@ const styles = StyleSheet.create({
 		// zIndex: 10,
 	},
 	fretboardContainer: {
-		marginRight: 40,
+		// marginRight: 40,
 	},
 	container: {
 		flexDirection: "row",
