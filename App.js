@@ -8,22 +8,33 @@ import { useEffect, useState } from "react";
 
 export default function App() {
 	const [lookup, setLookup] = useState("0-0-0-0-0-0");
+	const [chordName, setChordName] = useState([]);
 
 	const fetchChordInfo = async (strings) => {
 		try {
 			const response = await axios.get(`https://api.uberchord.com/v1/chords?voicing=${strings}`);
 			// Handle the response data
-			const chordInfo = response.data;
-			console.log(chordInfo);
+			const chordName = response.data[0].chordName;
+			const res = await axios.get(`https://api.uberchord.com/v1/chords?nameLike=${chordName}`);
+
+			console.log(chordName);
+			let chordNameArray = chordName.split(",").filter((item) => item !== "");
+			console.log(chordNameArray);
+			setChordName(chordNameArray);
+			//console.log(res.data);
 		} catch (error) {
 			console.error("Error fetching chord information:", error.message);
 		}
 	};
+
+	useEffect(() => {
+		fetchChordInfo(lookup);
+	}, [lookup]);
+
+	const getAllStrings = () => {};
+
 	// X-3-2-X-1-0
 	// X 3 2 0 1 0
-	// useEffect(() => {
-	// 	fetchChordInfo("X 3 2 0 1 0");
-	// }, []);
 
 	return (
 		<SafeAreaView style={styles.container}>
@@ -31,7 +42,7 @@ export default function App() {
 			<ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1 }}>
 				<Fretboard lookup={lookup} setLookup={setLookup} />
 			</ScrollView>
-			<Footer lookup={lookup} fetchChordInfo={fetchChordInfo} />
+			<Footer lookup={lookup} chordName={chordName} fetchChordInfo={fetchChordInfo} />
 			<StatusBar style="auto" />
 		</SafeAreaView>
 	);

@@ -5,13 +5,18 @@ import { AntDesign } from "@expo/vector-icons";
 // import { BlurView } from "expo-blur";
 
 // Define the Footer functional component
-const Footer = ({ lookup, fetchChordInfo }) => {
+const Footer = ({ lookup, fetchChordInfo, chordName }) => {
 	// Render the Footer component
 	return (
 		<View style={styles.footer}>
-			<TouchableOpacity style={styles.button} onPress={() => fetchChordInfo(lookup)}>
+			{/* <TouchableOpacity style={styles.button} onPress={() => fetchChordInfo(lookup)}>
 				<Text>RESULTS</Text>
-			</TouchableOpacity>
+			</TouchableOpacity> */}
+			<View style={styles.nameContainer}>
+				<Text style={styles.text}>{chordName[0]}</Text>
+				<Text style={styles.subscript}>{chordName[1] === "E" ? "" : chordName[1]}</Text>
+				<Text style={styles.superscript}>{chordName[2]}</Text>
+			</View>
 		</View>
 	);
 };
@@ -43,12 +48,29 @@ const styles = StyleSheet.create({
 		backgroundColor: "#111111",
 		width: "100%",
 	},
-	button: {
-		backgroundColor: "white",
+	nameContainer: {
+		flexDirection: "row",
+		backgroundColor: "#4f0c16",
 		alignItems: "center",
 		justifyContent: "center",
 		width: 140,
 		height: 30,
 		borderRadius: 10,
+	},
+	superscript: {
+		color: "white",
+		position: "relative",
+		top: -4, // Adjust the value to fine-tune the vertical positioning
+		fontSize: 10,
+	},
+	subscript: {
+		color: "white",
+		top: 4,
+		fontSize: 12, // Adjust the font size as needed
+		textAlignVertical: "bottom", // Adjust the line height as needed
+	},
+	text: {
+		color: "white",
+		fontSize: 14,
 	},
 });
