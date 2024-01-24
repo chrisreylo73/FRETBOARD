@@ -21,9 +21,9 @@ export default function App() {
 	};
 	// X-3-2-X-1-0
 	// X 3 2 0 1 0
-	useEffect(() => {
-		fetchChordInfo("X 3 2 0 1 0");
-	}, []);
+	// useEffect(() => {
+	// 	fetchChordInfo("X 3 2 0 1 0");
+	// }, []);
 
 	return (
 		<SafeAreaView style={styles.container}>
