@@ -31,7 +31,7 @@ export default function App() {
 			<ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1 }}>
 				<Fretboard lookup={lookup} setLookup={setLookup} />
 			</ScrollView>
-			<Footer lookup={lookup} />
+			<Footer lookup={lookup} fetchChordInfo={fetchChordInfo} />
 			<StatusBar style="auto" />
 		</SafeAreaView>
 	);

@@ -5,11 +5,11 @@ import { AntDesign } from "@expo/vector-icons";
 // import { BlurView } from "expo-blur";
 
 // Define the Footer functional component
-const Footer = ({}) => {
+const Footer = ({ lookup, fetchChordInfo }) => {
 	// Render the Footer component
 	return (
 		<View style={styles.footer}>
-			<TouchableOpacity style={styles.button}>
+			<TouchableOpacity style={styles.button} onPress={() => fetchChordInfo(lookup)}>
 				<Text>RESULTS</Text>
 			</TouchableOpacity>
 		</View>
