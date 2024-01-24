@@ -29,9 +29,9 @@ export default function App() {
 		<SafeAreaView style={styles.container}>
 			<Header />
 			<ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1 }}>
-				<Fretboard />
+				<Fretboard lookup={lookup} setLookup={setLookup} />
 			</ScrollView>
-			<Footer />
+			<Footer lookup={lookup} />
 			<StatusBar style="auto" />
 		</SafeAreaView>
 	);

@@ -28,9 +28,62 @@ const Fret = ({ fretHeight, doubleCircle, singleCircle, includeFretBar, fretNumb
 		if (littleELocation !== fretNumber) {
 			setLittleEPressed(false);
 		}
+		// console.log(`${bigELocation}-${aLocation}-${dLocation}-${gLocation}-${bLocation}-${littleELocation}`);
 	}, [bigELocation, aLocation, dLocation, gLocation, bLocation, littleELocation]);
 
-	const handleBigE = () => {};
+	const handleBigEClicked = () => {
+		if (bigEPressed === true && bigELocation === fretNumber) {
+			setBigELocation(0);
+		} else {
+			setBigELocation(fretNumber);
+		}
+		setBigEPressed(!bigEPressed);
+	};
+
+	const handleAClicked = () => {
+		if (aPressed === true && aLocation === fretNumber) {
+			setALocation(0);
+		} else {
+			setALocation(fretNumber);
+		}
+		setAPressed(!aPressed);
+	};
+
+	const handleDClicked = () => {
+		if (dPressed === true && dLocation === fretNumber) {
+			setDLocation(0);
+		} else {
+			setDLocation(fretNumber);
+		}
+		setDPressed(!dPressed);
+	};
+
+	const handleGClicked = () => {
+		if (gPressed === true && gLocation === fretNumber) {
+			setGLocation(0);
+		} else {
+			setGLocation(fretNumber);
+		}
+		setGPressed(!gPressed);
+	};
+
+	const handleBClicked = () => {
+		if (bPressed === true && bLocation === fretNumber) {
+			setBLocation(0);
+		} else {
+			setBLocation(fretNumber);
+		}
+		setBPressed(!bPressed);
+	};
+
+	const handleLittleEClicked = () => {
+		if (littleEPressed === true && littleELocation === fretNumber) {
+			setLittleELocation(0);
+		} else {
+			setLittleELocation(fretNumber);
+		}
+		setLittleEPressed(!littleEPressed);
+	};
 
 	return (
 		<View style={[styles.fret, { height: fretHeight }]}>
@@ -64,42 +117,12 @@ const Fret = ({ fretHeight, doubleCircle, singleCircle, includeFretBar, fretNumb
 				<></>
 			)}
 			<View style={[styles.buttonsContainer, { top: 32 - (fretNumber || 0) }]}>
-				<TouchableOpacity
-					style={[styles.button, { marginRight: 3, marginLeft: 2.5, backgroundColor: bigEPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]}
-					onPress={() => {
-						setBigEPressed(!bigEPressed), setBigELocation(fretNumber);
-					}}
-				></TouchableOpacity>
-				<TouchableOpacity
-					style={[styles.button, { marginRight: 2.5, backgroundColor: aPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]}
-					onPress={() => {
-						setAPressed(!aPressed), setALocation(fretNumber);
-					}}
-				></TouchableOpacity>
-				<TouchableOpacity
-					style={[styles.button, { marginRight: 1.5, backgroundColor: dPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]}
-					onPress={() => {
-						setDPressed(!dPressed), setDLocation(fretNumber);
-					}}
-				></TouchableOpacity>
-				<TouchableOpacity
-					style={[styles.button, { marginRight: 1, backgroundColor: gPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]}
-					onPress={() => {
-						setGPressed(!gPressed), setGLocation(fretNumber);
-					}}
-				></TouchableOpacity>
-				<TouchableOpacity
-					style={[styles.button, { backgroundColor: bPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]}
-					onPress={() => {
-						setBPressed(!bPressed), setBLocation(fretNumber);
-					}}
-				></TouchableOpacity>
-				<TouchableOpacity
-					style={[styles.button, { backgroundColor: littleEPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]}
-					onPress={() => {
-						setLittleEPressed(!littleEPressed), setLittleELocation(fretNumber);
-					}}
-				></TouchableOpacity>
+				<TouchableOpacity style={[styles.button, { marginRight: 3, marginLeft: 2.5, backgroundColor: bigEPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]} onPress={handleBigEClicked}></TouchableOpacity>
+				<TouchableOpacity style={[styles.button, { marginRight: 2.5, backgroundColor: aPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]} onPress={handleAClicked}></TouchableOpacity>
+				<TouchableOpacity style={[styles.button, { marginRight: 1.5, backgroundColor: dPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]} onPress={handleDClicked}></TouchableOpacity>
+				<TouchableOpacity style={[styles.button, { marginRight: 1, backgroundColor: gPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]} onPress={handleGClicked}></TouchableOpacity>
+				<TouchableOpacity style={[styles.button, { backgroundColor: bPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]} onPress={handleBClicked}></TouchableOpacity>
+				<TouchableOpacity style={[styles.button, { backgroundColor: littleEPressed === true ? "white" : "rgba(255, 255, 255, 0.1)" }]} onPress={handleLittleEClicked}></TouchableOpacity>
 			</View>
 			<View style={styles.stringsContainer}>
 				<View style={[styles.string, { width: 7 }]}></View>

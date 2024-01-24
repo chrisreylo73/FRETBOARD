@@ -2,20 +2,22 @@ import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from "react-na
 import { useEffect, useState } from "react";
 import Fret from "./Fret";
 
-const Fretboard = () => {
+const Fretboard = ({ lookup, setLookup }) => {
 	const [bigELocation, setBigELocation] = useState(0);
 	const [aLocation, setALocation] = useState(0);
 	const [dLocation, setDLocation] = useState(0);
 	const [gLocation, setGLocation] = useState(0);
 	const [bLocation, setBLocation] = useState(0);
 	const [littleELocation, setLittleELocation] = useState(0);
+	useEffect(() => {
+		setLookup(`${bigELocation}-${aLocation}-${dLocation}-${gLocation}-${bLocation}-${littleELocation}`);
+	}, [bigELocation, aLocation, dLocation, gLocation, bLocation, littleELocation]);
+
 	const toRoman = (num) => {
 		const romanNumerals = ["I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"];
 		const arabicNumerals = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
-
 		let result = "";
 		let i = arabicNumerals.length - 1;
-
 		while (num > 0) {
 			if (num >= arabicNumerals[i]) {
 				result += romanNumerals[i];
@@ -24,11 +26,9 @@ const Fretboard = () => {
 				i--;
 			}
 		}
-
 		return result;
 	};
-	{
-	}
+
 	return (
 		<SafeAreaView style={styles.container}>
 			<View style={[styles.romanNumeralContainer]}>
