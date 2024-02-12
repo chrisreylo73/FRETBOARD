@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, SafeAreaView, TouchableOpacity } from "react-native";
 import { useEffect, useState } from "react";
 import Fret from "./Fret";
+import StringNames from "./StringNames";
 
 const Fretboard = ({ lookup, setLookup }) => {
 	const [bigELocation, setBigELocation] = useState(0);
@@ -10,7 +11,9 @@ const Fretboard = ({ lookup, setLookup }) => {
 	const [bLocation, setBLocation] = useState(0);
 	const [littleELocation, setLittleELocation] = useState(0);
 	useEffect(() => {
+		console.log(lookup);
 		setLookup(`${bigELocation}-${aLocation}-${dLocation}-${gLocation}-${bLocation}-${littleELocation}`);
+		console.log(lookup);
 	}, [bigELocation, aLocation, dLocation, gLocation, bLocation, littleELocation]);
 
 	const toRoman = (num) => {
@@ -54,14 +57,27 @@ const Fretboard = ({ lookup, setLookup }) => {
 				<Text style={[styles.romanNumeral, { marginTop: 25 }]}>{toRoman(20)}</Text>
 			</View>
 			<View style={[styles.fretboardContainer]}>
-				<View style={styles.stringNames}>
-					<Text> E</Text>
-					<Text>A</Text>
-					<Text>D</Text>
-					<Text>G</Text>
-					<Text>B</Text>
-					<Text>E</Text>
-				</View>
+				{/* <View style={styles.stringNames}>
+					<TouchableOpacity style={[{ marginLeft: 20 }, styles.stringName]}>
+						<Text>E</Text>
+					</TouchableOpacity>
+					<TouchableOpacity style={[{ marginLeft: 28 }, styles.stringName]}>
+						<Text>A</Text>
+					</TouchableOpacity>
+					<TouchableOpacity style={[{ marginLeft: 28 }, styles.stringName]}>
+						<Text>D</Text>
+					</TouchableOpacity>
+					<TouchableOpacity style={[{ marginLeft: 26 }, styles.stringName]}>
+						<Text>G</Text>
+					</TouchableOpacity>
+					<TouchableOpacity style={[{ marginLeft: 26 }, styles.stringName]}>
+						<Text>B</Text>
+					</TouchableOpacity>
+					<TouchableOpacity style={[{ marginLeft: 26 }, styles.stringName]}>
+						<Text>E</Text>
+					</TouchableOpacity>
+				</View> */}
+				<StringNames bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
 				<Fret fretHeight={80} includeFretBar={false} fretNumber={1} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
 				<Fret fretHeight={78} fretNumber={2} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
 				<Fret fretHeight={76} singleCircle={true} fretNumber={3} bigELocation={bigELocation} setBigELocation={setBigELocation} aLocation={aLocation} setALocation={setALocation} dLocation={dLocation} setDLocation={setDLocation} gLocation={gLocation} setGLocation={setGLocation} bLocation={bLocation} setBLocation={setBLocation} littleELocation={littleELocation} setLittleELocation={setLittleELocation} />
@@ -91,6 +107,12 @@ const Fretboard = ({ lookup, setLookup }) => {
 export default Fretboard;
 
 const styles = StyleSheet.create({
+	stringName: {
+		backgroundColor: "white",
+		width: 20,
+		height: 20,
+		borderRadius: 10,
+	},
 	romanNumeral: {
 		// marginBottom: 70,
 		color: "#FFFFFF",
@@ -139,7 +161,7 @@ const styles = StyleSheet.create({
 		position: "absolute",
 		alignItems: "center",
 		flexDirection: "row",
-		justifyContent: "space-around",
+		justifyContent: "space-evenly",
 		width: "100%",
 		top: 30,
 		zIndex: 10,
@@ -159,10 +181,12 @@ const styles = StyleSheet.create({
 	},
 	stringNames: {
 		flexDirection: "row",
-		justifyContent: "space-around",
+		// justifyContent: "space-evenly",
 		backgroundColor: "white",
+		alignItems: "center",
 		borderTopEndRadius: 5,
 		borderTopStartRadius: 5,
 		borderWidth: 0,
+		height: 25,
 	},
 });

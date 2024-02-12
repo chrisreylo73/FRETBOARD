@@ -14,7 +14,7 @@ const Footer = ({ lookup, fetchChordInfo, chordName }) => {
 			</TouchableOpacity> */}
 			<View style={styles.nameContainer}>
 				<Text style={styles.text}>{chordName[0]}</Text>
-				<Text style={styles.subscript}>{chordName[1] === "E" ? "" : chordName[1]}</Text>
+				<Text style={styles.subscript}>{chordName[1]}</Text>
 				<Text style={styles.superscript}>{chordName[2]}</Text>
 			</View>
 		</View>
